@@ -15,6 +15,8 @@ namespace UnitTests;
 public sealed class TestNoFaxPrinter
 {
     [TestMethod]
+
+    // Tester for the Print function in NoFaxPrinter
     public void TestPrint()
     {
         IPrinter printer = new AllRoundPrinter();
@@ -26,6 +28,8 @@ public sealed class TestNoFaxPrinter
     }
 
     [TestMethod]
+
+    // Tester for the Scan function in NoFaxPrinter
     public void TestScan()
     {
         IScanner scanner = new AllRoundPrinter();

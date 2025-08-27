@@ -6,14 +6,21 @@ using System.Threading.Tasks;
 
 namespace Devices;
 
-/*
-    Scan
-    Input: reads from console
-    Output: makes a soft copy of the file as an attribute
- */
+
 public interface IScanner
 {
+
+    /*
+        Input: 
+            - doc: string version of the document
+        Returns:
+            - void: just takes the file and stores it
+    */
     public void Scan(string doc);
+
+    /*
+        This is the document stored in the scanner after scanning
+     */
     public string Document
     {
         get; set;

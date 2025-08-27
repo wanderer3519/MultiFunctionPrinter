@@ -9,6 +9,8 @@ namespace UnitTests;
 public sealed class TestAllRoundPrinter
 {
     [TestMethod]
+
+    // Tester for the Print method in AllRoundPrinter
     public void TestPrint()
     {
         IPrinter printer = new AllRoundPrinter();
@@ -20,6 +22,8 @@ public sealed class TestAllRoundPrinter
     }
 
     [TestMethod]
+
+    // Tester for the Scan method in AllRoundPrinter
     public void TestScan()
     {
         IScanner scanner = new AllRoundPrinter();
@@ -30,17 +34,19 @@ public sealed class TestAllRoundPrinter
     }
 
     [TestMethod]
+
+    // Tester for the Fax method in AllRoundPrinter
     public void TestFax()
     {
         IFax fax = new AllRoundPrinter();
 
         string info = "Hey, do your homework";
-        string ipAddress = "123.1.1.128";
+        string telephoneNumber = "9886654423";
 
-        string expectedMessage = $"Sending document: {info} to {ipAddress}";
+        string expectedMessage = $"Sending document: {info} to {telephoneNumber}";
 
 
-        fax.Fax(info, ipAddress);
+        fax.Fax(info, telephoneNumber);
 
         Assert.AreEqual(expectedMessage, fax.FaxText);
     }

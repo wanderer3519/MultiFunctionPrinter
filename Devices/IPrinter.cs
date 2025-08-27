@@ -9,8 +9,19 @@
  */
 public interface IPrinter
 {
+    /*
+        The main method to read a document and print it
+        Inputs:
+            - doc: the text file to be printed
+        Returns:
+            - void: just prints the file
+     */
     public void Print(string doc);
 
+
+    /*
+        Just to make the test cases work, storing the text to be printed here
+     */
     public string PrintText
     {
         get;
