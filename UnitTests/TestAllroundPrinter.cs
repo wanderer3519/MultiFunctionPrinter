@@ -6,13 +6,13 @@ using Devices;
 namespace UnitTests;
 
 [TestClass]
-public sealed class TestAllroundPrinter
+public sealed class TestAllRoundPrinter
 {
     [TestMethod]
     public void TestPrint()
     {
         IPrinter printer = new AllRoundPrinter();
-        string doc = "Testing the printer";
+        string doc = "Testing the printer in All round printer";
 
         printer.Print(doc);
 
@@ -23,7 +23,7 @@ public sealed class TestAllroundPrinter
     public void TestScan()
     {
         IScanner scanner = new AllRoundPrinter();
-        string doc = "Testing the scanner";
+        string doc = "Testing the scanner in All round printer";
 
         scanner.Scan(doc);
         Assert.AreEqual(doc, scanner.Document);
