@@ -8,6 +8,6 @@ namespace Devices
 {
     public interface IFax
     {
-        public void Fax(string username, string password);
+        public void Fax(string doc, string ip);
     }
 }
