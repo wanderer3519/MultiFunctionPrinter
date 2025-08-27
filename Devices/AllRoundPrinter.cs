@@ -45,6 +45,8 @@ public class AllRoundPrinter : IScanner, IPrinter, IFax
         _document = doc;
         _faxText = $"Sending document: {_document} to {telnum}";
         FaxText = _faxText;
+
+        Console.WriteLine(_faxText);
     }
 
 
@@ -53,6 +55,8 @@ public class AllRoundPrinter : IScanner, IPrinter, IFax
     {
         _printText = doc;
         PrintText = _printText;
+
+        Console.WriteLine(_printText);
     }
 
     // Implementation of the Scan method of Scanner

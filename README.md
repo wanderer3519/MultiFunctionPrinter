@@ -26,7 +26,7 @@ These illustrate how different interfaces seperated from each other can actually
 one single complex device.
 
 ## Design
-There are two modules in the project.
+There are three modules in the project.
 
 - Devices
     - This module contains all the interfaces and devices used in this project. These are
@@ -51,6 +51,12 @@ There are two modules in the project.
         - `TestAllroundPrinter`: Tests the `AllRoundPrinter` class
         - `TestNoFaxPrinter`: Tests the `NoFaxPrinter` class
 
+
+- Executive
+    - This module has the startup app (added just in case)
+    - `Program`: Has the console application code
+        - `Main`: Entry point function in the console app 
+
 ## Methodology
 - Printing: 
     - Once a document is provided as a string, it is stored as a variable `PrintedText` 
@@ -63,8 +69,8 @@ There are two modules in the project.
     `Sending <document> to <telnum>` is stored in the `IFax`
 
 ## Shortcoming
-Currently, no console writing or logging is used because, it made testing harder for me.
-I will definitely look into testing methods logging into the console in the future.
+Currently, no console writing or logging is used in testing because, it made testing harder for me.
+But console logging is used as an executive app.
 
 ## References
 I sincerely thank this website for providing me the example on interface segmentation 
