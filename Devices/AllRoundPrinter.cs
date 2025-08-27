@@ -4,38 +4,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Devices
+namespace Devices;
+
+public class AllRoundPrinter : IScanner, IPrinter, IFax
 {
-    public class AllRoundPrinter : IScanner, IPrinter, IFax
+    private string _document = "";
+    private string _printText = "";
+    private string _faxText = "";
+
+
+    public string Document
     {
-        private string document = "";
-        public string doc
-        {
-            get
-            {
-                return document;
-            }
-            set
-            {
-                document = value;
-            }
-        }
+        get => _document;
 
-        public void Fax(string doc, string ip)
-        {
-            Scan(doc);
-            Console.WriteLine($"Sending document: {document} to {ip}");
-        }
+        set => _document = value;
+    }
+
+    public string PrintText
+    {
+        get => _printText;
+        set => _printText = value;
+    }
+
+    public string FaxText
+    {
+        get => _faxText;
+        set => _faxText = value;
+    }
+
+    public void Fax(string doc, string ip)
+    {
+        _document = doc;
+        _faxText = $"Sending document: {_document} to {ip}";
+        FaxText = _faxText;
+    }
 
 
-        public void Print(string doc)
-        {
-            Console.WriteLine(doc);
-        }
+    public void Print(string doc)
+    {
+        _printText = doc;
+        PrintText = _printText;
+    }
 
-        public void Scan(string doc)
-        {
-            document += doc;
-        }
+    public void Scan(string doc)
+    {
+        _document = doc;
+        Document = _document;
     }
 }

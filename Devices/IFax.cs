@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Devices
+namespace Devices;
+
+public interface IFax
 {
-    public interface IFax
+    public void Fax(string doc, string ip);
+
+    public string FaxText
     {
-        public void Fax(string doc, string ip);
+        get; set;
     }
 }

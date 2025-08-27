@@ -3,57 +3,45 @@ using System.Reflection.Metadata;
 using System.Xml.Linq;
 using Devices;
 
-namespace UnitTests
+namespace UnitTests;
+
+[TestClass]
+public sealed class TestAllroundPrinter
 {
-    [TestClass]
-    public sealed class TestAllroundPrinter
+    [TestMethod]
+    public void TestPrint()
     {
-        [TestMethod]
-        public void TestPrint()
-        {
-            IPrinter printer = new AllRoundPrinter();
-            string doc = "Testing the printer";
+        IPrinter printer = new AllRoundPrinter();
+        string doc = "Testing the printer";
 
-            StringWriter stringWriter = new StringWriter();
-            Console.SetOut(stringWriter);
+        printer.Print(doc);
 
-            printer.Print(doc);
-            string output = stringWriter.ToString();
-            Assert.AreEqual($"{doc}\r\n", output);
+        Assert.AreEqual(doc, printer.PrintText);
+    }
 
-        }
+    [TestMethod]
+    public void TestScan()
+    {
+        IScanner scanner = new AllRoundPrinter();
+        string doc = "Testing the scanner";
 
-        [TestMethod]
-        public void TestScan() 
-        {
-            IScanner scanner = new AllRoundPrinter();
-            string doc = "Testing the scanner";
+        scanner.Scan(doc);
+        Assert.AreEqual(doc, scanner.Document);
+    }
 
+    [TestMethod]
+    public void TestFax()
+    {
+        IFax fax = new AllRoundPrinter();
 
-            scanner.Scan(doc);
-            Assert.AreEqual(doc, scanner.doc);
-        }
+        string info = "Hey, do your homework";
+        string ipAddress = "123.1.1.128";
 
-        [TestMethod]
-        public void TestFax()
-        {
-            IFax fax = new AllRoundPrinter();
-
-            StringWriter stringWriter = new StringWriter();
-            Console.SetOut(stringWriter);
-
-            string info = "Hey, do your homework";
-            string ipAddress = "123.1.1.128";
-
-            
-
-            string expectedMessage = $"Sending document: {info} to {ipAddress}";
+        string expectedMessage = $"Sending document: {info} to {ipAddress}";
 
 
-            fax.Fax(info, ipAddress);
-            string output = stringWriter.ToString();
-            Assert.AreEqual(expectedMessage, output);
+        fax.Fax(info, ipAddress);
 
-        }
+        Assert.AreEqual(expectedMessage, fax.FaxText);
     }
 }
